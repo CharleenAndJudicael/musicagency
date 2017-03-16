@@ -1,5 +1,5 @@
 # Music Agency
-* *Authors* : Dubray Judicaël
+* *Authors* : Dubray Judicaël, Kemps Charleen
 * *Technologies* : Java
 
 
@@ -11,3 +11,4 @@
 ##Developpers
 
 Dubray Judicaël
+Kemps Charleen
