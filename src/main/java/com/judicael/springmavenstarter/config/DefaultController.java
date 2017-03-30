@@ -5,8 +5,6 @@
  */
 package com.judicael.springmavenstarter.config;
 
-import javax.servlet.annotation.WebServlet;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author judicael
  */
 @Controller
-@RequestMapping(value = "/springmavenstarter")
+//@RequestMapping(value = "/springmavenstarter")
 //@WebServlet(value = "/springmavenstarter")
 public class DefaultController {
-    @RequestMapping( method = RequestMethod.GET)
+    @RequestMapping(value = "/springmavenstarter", method = RequestMethod.GET)
    public String index(ModelMap map) {
        map.put("msg", "Hello Spring 4 Web MVC!");
        return "index";

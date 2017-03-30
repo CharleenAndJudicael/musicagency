@@ -5,6 +5,9 @@
  */
 package com.judicael.springmavenstarter.config;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
@@ -26,13 +30,20 @@ public class Config extends WebMvcConfigurerAdapter  {
     @Bean  
     public UrlBasedViewResolver setupViewResolver() {  
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();  
-        resolver.setPrefix("/WEB-INF/Views/");  
+        resolver.setPrefix("/WEB-INF/views/");  
         resolver.setSuffix(".jsp");  
         resolver.setViewClass(JstlView.class);  
         return resolver;  
     }  
     
-   
+    @Autowired
+    private RequestMappingHandlerAdapter requestMappingHandlerAdapter;
+ 
+    @PostConstruct
+    public void init() {
+        requestMappingHandlerAdapter.setIgnoreDefaultModelOnRedirect(true);
+    }
+    
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/*");
@@ -40,7 +51,7 @@ public class Config extends WebMvcConfigurerAdapter  {
     
 //    @Override
 //    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("forward:Views/index.jsp");
+//        registry.addViewController("/springmavenstarter").setViewName("forward:views/index.jsp");
 //    }
     
 }
