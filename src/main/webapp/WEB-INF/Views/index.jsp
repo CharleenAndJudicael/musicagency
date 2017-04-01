@@ -12,7 +12,7 @@
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Spring 4 Web MVC via Annotations</title>
-        <link rel="stylesheet" type="text/css" href="{cp}/resources/css/site.css" />
+        <link rel="stylesheet" type="text/css" href="${cp}/resources/css/site.css" />
         <script src="${cp}/resources/js/js.js"></script>
         
        
